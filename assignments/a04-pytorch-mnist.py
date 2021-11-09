@@ -154,7 +154,7 @@ def main():
     criterion = torch.nn.CrossEntropyLoss()
 
     # Adam
-    optimizer = torch.optim.Adam(model.parameters(), args.learning_rate)
+    #optimizer = torch.optim.Adam(model.parameters(), args.learning_rate)
 
     # SGD
     # optimizer = torch.optim.SGD(model.parameters(), args.learning_rate)
