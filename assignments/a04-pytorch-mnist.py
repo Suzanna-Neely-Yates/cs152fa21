@@ -178,7 +178,7 @@ def main():
     # optimizer = torch.optim.SGD(model.parameters(), args.learning_rate)
 
     # Adagrad
-    optimizer = torch.optim.Adagrad(model.parameters(), args.learning_rate)
+    # optimizer = torch.optim.Adagrad(model.parameters(), args.learning_rate)
 
     # AMSGrad
     optimizer = torch.optim.AMSGrad(model.parameters(), args.learning_rate)
