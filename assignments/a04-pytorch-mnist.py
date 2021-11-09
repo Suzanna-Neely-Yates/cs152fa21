@@ -109,7 +109,7 @@ def main():
     aparser = ArgumentParser("Train a neural network on the MNIST dataset.")
     aparser.add_argument(
         "mnist", type=str, help="Path to store/find the MNIST dataset")
-    aparser.add_argument("--num_epochs", type=int, default=10)
+    aparser.add_argument("--num_epochs", type=int, default=3)
     aparser.add_argument("--batch_size", type=int, default=128)
     aparser.add_argument("--learning_rate", type=float, default=0.1)
     aparser.add_argument("--seed", action="store_true")
