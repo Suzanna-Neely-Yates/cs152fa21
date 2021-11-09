@@ -19,6 +19,10 @@ Epoch  8/10: accuracy=96.57% and loss=0.112
 Epoch  9/10: accuracy=96.73% and loss=0.108                                                                               
 Epoch 10/10: accuracy=96.95% and loss=0.102  
 
+Epoch  1/3: accuracy=93.57% and loss=0.216                        
+Epoch  2/3: accuracy=94.10% and loss=0.195                        
+Epoch  3/3: accuracy=95.93% and loss=0.148
+
 Second Accuracy (Adam);
 Initial accuracy=13.29% and loss=2.343
 Epoch  1/10: accuracy=50.97% and loss=1.419                      
@@ -141,8 +145,8 @@ def main():
     # - create a CrossEntropyLoss criterion
     # - create an optimizer of your choice
     criterion = torch.nn.CrossEntropyLoss()
-    # optimizer = torch.optim.Adam(model.parameters(), args.learning_rate)
-    optimizer = torch.optim.SGD(model.parameters(), args.learning_rate)
+    optimizer = torch.optim.Adam(model.parameters(), args.learning_rate)
+    # optimizer = torch.optim.SGD(model.parameters(), args.learning_rate)
 
     train(
         model, criterion, optimizer, train_loader, valid_loader, device, args.num_epochs
