@@ -180,8 +180,8 @@ def main():
     # Adagrad
     # optimizer = torch.optim.Adagrad(model.parameters(), args.learning_rate)
 
-    # AMSGrad
-    optimizer = torch.optim.AMSGrad(model.parameters(), args.learning_rate)
+    # RMSprop
+    optimizer = torch.optim.RMSprop(model.parameters(), args.learning_rate)
 
     train(
         model, criterion, optimizer, train_loader, valid_loader, device, args.num_epochs
