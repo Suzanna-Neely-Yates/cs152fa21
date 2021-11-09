@@ -41,7 +41,13 @@ Epoch  1/3: accuracy=29.49% and loss=1.860
 Epoch  2/3: accuracy=24.22% and loss=1.983                        
 Epoch  3/3: accuracy=24.38% and loss=1.982  
 
-Third Accuracy (A)
+Third Accuracy (Adagrad)
+
+Initial accuracy=16.80% and loss=2.358
+Epoch  1/3: accuracy=92.06% and loss=0.265                        
+Epoch  2/3: accuracy=93.62% and loss=0.216                        
+Epoch  3/3: accuracy=94.27% and loss=0.193
+
 """
 
 # check
@@ -120,7 +126,7 @@ def main():
     aparser = ArgumentParser("Train a neural network on the MNIST dataset.")
     aparser.add_argument(
         "mnist", type=str, help="Path to store/find the MNIST dataset")
-    aparser.add_argument("--num_epochs", type=int, default=3)
+    aparser.add_argument("--num_epochs", type=int, default=10)
     aparser.add_argument("--batch_size", type=int, default=128)
     aparser.add_argument("--learning_rate", type=float, default=0.1)
     aparser.add_argument("--seed", action="store_true")
