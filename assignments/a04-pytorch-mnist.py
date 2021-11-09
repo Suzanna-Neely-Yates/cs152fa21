@@ -43,6 +43,18 @@ Epoch  3/3: accuracy=24.38% and loss=1.982
 
 Third Accuracy (Adagrad)
 
+Initial accuracy=15.38% and loss=2.337
+Epoch  1/10: accuracy=92.46% and loss=0.258                        
+Epoch  2/10: accuracy=94.26% and loss=0.195                        
+Epoch  3/10: accuracy=95.25% and loss=0.164                        
+Epoch  4/10: accuracy=95.65% and loss=0.152                        
+Epoch  5/10: accuracy=95.59% and loss=0.147                        
+Epoch  6/10: accuracy=95.80% and loss=0.142                        
+Epoch  7/10: accuracy=96.01% and loss=0.138                        
+Epoch  8/10: accuracy=96.04% and loss=0.137                        
+Epoch  9/10: accuracy=95.89% and loss=0.137                        
+Epoch 10/10: accuracy=96.21% and loss=0.132 
+
 Initial accuracy=16.80% and loss=2.358
 Epoch  1/3: accuracy=92.06% and loss=0.265                        
 Epoch  2/3: accuracy=93.62% and loss=0.216                        
@@ -167,6 +179,9 @@ def main():
 
     # Adagrad
     optimizer = torch.optim.Adagrad(model.parameters(), args.learning_rate)
+
+    # AMSGrad
+    optimizer = torch.optim.AMSGrad(model.parameters(), args.learning_rate)
 
     train(
         model, criterion, optimizer, train_loader, valid_loader, device, args.num_epochs
