@@ -160,7 +160,7 @@ def main():
     # optimizer = torch.optim.SGD(model.parameters(), args.learning_rate)
 
     # Adagrad
-    optimizer = torch.optim.adagrad(model.parameters(), args.learning_rate)
+    optimizer = torch.optim.Adagrad(model.parameters(), args.learning_rate)
 
     train(
         model, criterion, optimizer, train_loader, valid_loader, device, args.num_epochs
