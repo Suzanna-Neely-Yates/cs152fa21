@@ -6,6 +6,24 @@ from fastprogress.fastprogress import master_bar, progress_bar
 import torch
 
 """
+Assignment #5:
+We tried a variety of different algorithms including SGD, Adam, Adagrad and RMSprop with various epochs - 3 and 10.
+Here are our results:
+
+(10 Epochs)
+1. SGD: accuracy=96.95% and loss=0.102
+2. Adagrad: accuracy=96.21% and loss=0.132 
+3. RMSprop: accuracy=19.40% and loss=2.245
+4. Adam: accuracy=14.62% and loss=2.265 
+
+(3 Epochs)
+1. SGD: accuracy=95.93% and loss=0.148
+2. Adagrad: accuracy=94.27% and loss=0.193
+3. Adam: accuracy=24.38% and loss=1.982  
+4. RMSProp: accuracy=20.88% and loss=2.055
+
+Here are our full results:
+
 Original Accuracy (Original, SGD): 
 Initial accuracy= 8.08% and loss=2.349
 Epoch  1/10: accuracy=92.51% and loss=0.250                                                                               
@@ -60,6 +78,24 @@ Epoch  1/3: accuracy=92.06% and loss=0.265
 Epoch  2/3: accuracy=93.62% and loss=0.216                        
 Epoch  3/3: accuracy=94.27% and loss=0.193
 
+Fourth Accuracy (RMSprop)
+
+Initial accuracy= 9.69% and loss=2.333
+Epoch  1/10: accuracy=18.21% and loss=2.149                        
+Epoch  2/10: accuracy= 9.64% and loss=2.313                        
+Epoch  3/10: accuracy=12.69% and loss=2.252                        
+Epoch  4/10: accuracy=17.83% and loss=2.109                        
+Epoch  5/10: accuracy=18.92% and loss=2.088                        
+Epoch  6/10: accuracy=17.64% and loss=2.136                        
+Epoch  7/10: accuracy=19.39% and loss=2.095                        
+Epoch  8/10: accuracy=18.29% and loss=2.141                        
+Epoch  9/10: accuracy=17.47% and loss=2.153                        
+Epoch 10/10: accuracy=19.40% and loss=2.245
+
+Initial accuracy=14.51% and loss=2.298
+Epoch  1/3: accuracy=29.24% and loss=1.875                        
+Epoch  2/3: accuracy=21.05% and loss=2.086                        
+Epoch  3/3: accuracy=20.88% and loss=2.055
 """
 
 # check
