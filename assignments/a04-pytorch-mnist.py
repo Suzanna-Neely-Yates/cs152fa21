@@ -5,6 +5,25 @@ from utils import get_mnist_data_loaders, DataLoaderProgress
 from fastprogress.fastprogress import master_bar, progress_bar
 import torch
 
+"""
+Original Accuracy (Original, SGD): 
+Initial accuracy= 8.08% and loss=2.349
+Epoch  1/10: accuracy=92.51% and loss=0.250                                                                               
+Epoch  2/10: accuracy=94.84% and loss=0.171                                                                               
+Epoch  3/10: accuracy=95.94% and loss=0.140                                                                               
+Epoch  4/10: accuracy=96.11% and loss=0.132                                                                               
+Epoch  5/10: accuracy=96.09% and loss=0.128                                                                               
+Epoch  6/10: accuracy=96.40% and loss=0.116                                                                               
+Epoch  7/10: accuracy=96.20% and loss=0.117                                                                               
+Epoch  8/10: accuracy=96.57% and loss=0.112                                                                               
+Epoch  9/10: accuracy=96.73% and loss=0.108                                                                               
+Epoch 10/10: accuracy=96.95% and loss=0.102  
+
+
+"""
+
+# check
+
 
 def train_one_epoch(dataloader, model, criterion, optimizer, device, mb):
 
@@ -18,12 +37,12 @@ def train_one_epoch(dataloader, model, criterion, optimizer, device, mb):
         # Compute model output and then loss
         output = model(X)
         loss = criterion(output, Y)
-
-        # TODO:
         # - zero-out gradients
+        optimizer.zero_grad()
         # - compute new gradients
-        # - update paramters
-        ...
+        loss.backward()
+        # - update paramaters
+        optimizer.step()
 
 
 def validate(dataloader, model, criterion, device, epoch, num_epochs, mb):
@@ -47,8 +66,11 @@ def validate(dataloader, model, criterion, device, epoch, num_epochs, mb):
 
             # TODO:
             # - compute loss
+            loss += criterion(output, Y).item()
+
             # - compute the number of correctly classified examples
-            ...
+            num_correct += (output.argmax(1) ==
+                            Y).type(torch.float).sum().item()
 
         loss /= num_batches
         accuracy = num_correct / N
@@ -67,13 +89,15 @@ def train(model, criterion, optimizer, train_loader, valid_loader, device, num_e
 
     for epoch in mb:
         train_one_epoch(train_loader, model, criterion, optimizer, device, mb)
-        validate(valid_loader, model, criterion, device, epoch + 1, num_epochs, mb)
+        validate(valid_loader, model, criterion,
+                 device, epoch + 1, num_epochs, mb)
 
 
 def main():
 
     aparser = ArgumentParser("Train a neural network on the MNIST dataset.")
-    aparser.add_argument("mnist", type=str, help="Path to store/find the MNIST dataset")
+    aparser.add_argument(
+        "mnist", type=str, help="Path to store/find the MNIST dataset")
     aparser.add_argument("--num_epochs", type=int, default=10)
     aparser.add_argument("--batch_size", type=int, default=128)
     aparser.add_argument("--learning_rate", type=float, default=0.1)
@@ -90,18 +114,24 @@ def main():
     device = "cuda" if args.gpu and torch.cuda.is_available() else "cpu"
 
     # Get data loaders
-    train_loader, valid_loader = get_mnist_data_loaders(args.mnist, args.batch_size, 0)
+    train_loader, valid_loader = get_mnist_data_loaders(
+        args.mnist, args.batch_size, 0)
 
     # TODO: create a new model
     # Your model can be as complex or simple as you'd like. It must work
-    # with the other parts of this script.
-    model = ...
+    # with the other parts of this script.)
+    model = torch.nn.Sequential(
+        torch.nn.Flatten(),
+        torch.nn.Linear(784, 28),
+        torch.nn.ReLU(),
+        torch.nn.Linear(28, 10))
 
     # TODO:
     # - create a CrossEntropyLoss criterion
     # - create an optimizer of your choice
-    criterion = ...
-    optimizer = ...
+    criterion = torch.nn.CrossEntropyLoss()
+    optimizer = torch.optim.Adam(model.parameters(), args.learning_rate)
+    # optimizer = torch.optim.Adam(model.parameters(), args.learning_rate)
 
     train(
         model, criterion, optimizer, train_loader, valid_loader, device, args.num_epochs
