@@ -116,23 +116,23 @@ def main():
 
     model = torch.nn.Sequential(
 
-        torch.nn.Conv2d(3, 28, kernel_size=3, padding=1),
+        torch.nn.Conv2d(1, 28, kernel_size=3, padding=1),
         torch.nn.ReLU(),
         torch.nn.Conv2d(28, 56, kernel_size=3, stride=1, padding=1),
         torch.nn.ReLU(),
-        torch.nn.MaxPool2d(3, 2),
+        torch.nn.MaxPool2d(2, 2),
 
         torch.nn.Conv2d(56, 112, kernel_size=3, stride=1, padding=1),
         torch.nn.ReLU(),
         torch.nn.Conv2d(112, 112, kernel_size=3, stride=1, padding=1),
         torch.nn.ReLU(),
-        torch.nn.MaxPool2d(3, 2),
+        torch.nn.MaxPool2d(2, 2),
 
         torch.nn.Conv2d(112, 224, kernel_size=3, stride=1, padding=1),
         torch.nn.ReLU(),
         torch.nn.Conv2d(224, 224, kernel_size=3, stride=1, padding=1),
         torch.nn.ReLU(),
-        torch.nn.MaxPool2d(3, 2),
+        torch.nn.MaxPool2d(2, 2),
 
         torch.nn.Flatten(),
         torch.nn.Linear(224*4*4, 448),
