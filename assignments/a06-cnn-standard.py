@@ -113,11 +113,9 @@ def main():
     # with the other parts of this script.)
 
     model = models.resnet18(pretrained=False, progress=True)
-    model.conv1 = torch.nn.Conv2d(1, 28, kernel_size=3, padding=1)
+    model.conv1 = torch.nn.Conv2d(1, 64, kernel_size=3, padding=1)
     model.fc = torch.nn.Linear(in_features=224, out_features=10, bias=True)
     model.to(device)
-
-    #model.fc = nn.Linear(in_features=512, out_features=10, bias=True)
 
     """
     model = torch.nn.Sequential(
