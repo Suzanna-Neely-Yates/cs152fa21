@@ -123,7 +123,7 @@ def main():
         torch.nn.MaxPool2d(2, 2),
 
         torch.nn.Flatten(),
-        torch.nn.Linear(56*4*4, 224),
+        torch.nn.Linear(56, 224),
         torch.nn.ReLU(),
         torch.nn.Linear(224, 112),
         torch.nn.ReLU(),
