@@ -114,6 +114,24 @@ def main():
 
     model = models.resnet18(pretrained=False, progress=True)
 
+    model.conv1 = torch.nn.Conv2d(1, 28, kernel_size=3, padding=1)
+    model.fc = torch.nn.Linear(10976, 10),
+
+    """
+    model = torch.nn.Sequential(
+
+        torch.nn.Conv2d(1, 28, kernel_size=3, padding=1),
+        torch.nn.ReLU(),
+        torch.nn.Conv2d(28, 56, kernel_size=3, stride=1, padding=1),
+        torch.nn.ReLU(),
+        torch.nn.MaxPool2d(2, 2),
+
+        torch.nn.Flatten(),
+        torch.nn.Linear(10976, 10),
+        torch.nn.ReLU(),
+        torch.nn.Linear(10, 10))
+    """
+
     # TODO:
     # - create a CrossEntropyLoss criterion
     # - create an optimizer of your choice
