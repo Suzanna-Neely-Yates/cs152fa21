@@ -116,7 +116,7 @@ def main():
 
     model = torch.nn.Sequential(
 
-        torch.nn.Conv2d(3, 28, kernel_size=3, padding=1),
+        torch.nn.Conv2d(1, 28, kernel_size=3, padding=1),
         torch.nn.ReLU(),
         torch.nn.Conv2d(28, 56, kernel_size=3, stride=1, padding=1),
         torch.nn.ReLU(),
@@ -128,12 +128,18 @@ def main():
         torch.nn.ReLU(),
         torch.nn.MaxPool2d(2, 2),
 
+        torch.nn.Conv2d(112, 224, kernel_size=3, stride=1, padding=1),
+        torch.nn.ReLU(),
+        torch.nn.Conv2d(224, 224, kernel_size=3, stride=1, padding=1),
+        torch.nn.ReLU(),
+        torch.nn.MaxPool2d(2, 2),
+
         torch.nn.Flatten(),
-        torch.nn.Linear(112*4*4, 448),
+        torch.nn.Linear(224*4*4, 896),
         torch.nn.ReLU(),
-        torch.nn.Linear(448, 224),
+        torch.nn.Linear(896, 448),
         torch.nn.ReLU(),
-        torch.nn.Linear(224, 10))
+        torch.nn.Linear(448, 10))
 
     # TODO:
     # - create a CrossEntropyLoss criterion
