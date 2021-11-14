@@ -23,7 +23,12 @@ A convolutional neural network implemented with sequential:
     Epoch  2/10: accuracy=98.82% and loss=0.035                            
     Epoch  3/10: accuracy=98.88% and loss=0.036                            
     Epoch  4/10: accuracy=98.95% and loss=0.031                            
-    Epoch  5/10: accuracy=99.10% and loss=0.029 
+    Epoch  5/10: accuracy=99.10% and loss=0.029                            
+    Epoch  6/10: accuracy=98.85% and loss=0.034                            
+    Epoch  7/10: accuracy=99.06% and loss=0.030                            
+    Epoch  8/10: accuracy=98.93% and loss=0.036                            
+    Epoch  9/10: accuracy=99.06% and loss=0.032                            
+    Epoch 10/10: accuracy=99.08% and loss=0.030
 """
 
 # check
@@ -102,7 +107,7 @@ def main():
     aparser = ArgumentParser("Train a neural network on the MNIST dataset.")
     aparser.add_argument(
         "mnist", type=str, help="Path to store/find the MNIST dataset")
-    aparser.add_argument("--num_epochs", type=int, default=10)
+    aparser.add_argument("--num_epochs", type=int, default=3)
     aparser.add_argument("--batch_size", type=int, default=128)
     aparser.add_argument("--learning_rate", type=float, default=0.1)
     aparser.add_argument("--seed", action="store_true")
@@ -134,9 +139,9 @@ def main():
         torch.nn.MaxPool2d(2, 2),
 
         torch.nn.Flatten(),
-        torch.nn.Linear(10976, 10000),
+        torch.nn.Linear(10976, 10),
         torch.nn.ReLU(),
-        torch.nn.Linear(10000, 10))
+        torch.nn.Linear(10, 10))
 
     # TODO:
     # - create a CrossEntropyLoss criterion

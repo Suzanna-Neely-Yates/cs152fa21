@@ -112,7 +112,7 @@ def main():
     # Your model can be as complex or simple as you'd like. It must work
     # with the other parts of this script.)
 
-    model = models.resnet18(pretrained=False, progress=True, **kwargs)
+    model = models.resnet18(pretrained=False, progress=True)
 
     # TODO:
     # - create a CrossEntropyLoss criterion
