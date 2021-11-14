@@ -14,6 +14,18 @@ A fully connected neural network:
     3. ReLU function
     4. Linear layer with 28 inputs and 10 outputs.
 
+Initial accuracy=12.61% and loss=2.310
+Epoch  1/10: accuracy=93.60% and loss=0.223                      
+Epoch  2/10: accuracy=94.91% and loss=0.176                      
+Epoch  3/10: accuracy=95.43% and loss=0.153                      
+Epoch  4/10: accuracy=95.86% and loss=0.137                      
+Epoch  5/10: accuracy=95.35% and loss=0.145                      
+Epoch  6/10: accuracy=96.17% and loss=0.123                      
+Epoch  7/10: accuracy=95.87% and loss=0.127                      
+Epoch  8/10: accuracy=96.29% and loss=0.116                      
+Epoch  9/10: accuracy=96.46% and loss=0.114                      
+Epoch 10/10: accuracy=96.13% and loss=0.118
+
 """
 
 # check
