@@ -114,19 +114,6 @@ def main():
     # Your model can be as complex or simple as you'd like. It must work
     # with the other parts of this script.)
     model = torch.nn.Sequential(
-
-        torch.nn.Conv2d(3, 28, kernel_size=3, padding=1),
-        torch.nn.ReLU(),
-        torch.nn.Conv2d(28, 56, kernel_size=3, stride=1, padding=1),
-        torch.nn.ReLU(),
-        torch.nn.MaxPool2d(2, 2),
-
-        torch.nn.Conv2d(56, 112, kernel_size=3, stride=1, padding=1),
-        torch.nn.ReLU(),
-        torch.nn.Conv2d(112, 112, kernel_size=3, stride=1, padding=1),
-        torch.nn.ReLU(),
-        torch.nn.MaxPool2d(2, 2),
-
         torch.nn.Flatten(),
         torch.nn.Linear(784, 28),
         torch.nn.ReLU(),
@@ -138,7 +125,7 @@ def main():
     criterion = torch.nn.CrossEntropyLoss()
 
     # Adam
-    # optimizer = torch.optim.Adam(model.parameters(), args.learning_rate)
+    #optimizer = torch.optim.Adam(model.parameters(), args.learning_rate)
 
     # SGD
     optimizer = torch.optim.SGD(model.parameters(), args.learning_rate)
