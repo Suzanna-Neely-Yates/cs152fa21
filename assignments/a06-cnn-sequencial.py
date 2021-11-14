@@ -122,6 +122,14 @@ def main():
         torch.nn.ReLU(),
         torch.nn.MaxPool2d(2, 2),
 
+        torch.nn.Flatten(),
+        torch.nn.Linear(56*4*4, 224),
+        torch.nn.ReLU(),
+        torch.nn.Linear(224, 112),
+        torch.nn.ReLU(),
+        torch.nn.Linear(112, 10))
+
+    """
         torch.nn.Conv2d(56, 112, kernel_size=3, stride=1, padding=1),
         torch.nn.ReLU(),
         torch.nn.Conv2d(112, 112, kernel_size=3, stride=1, padding=1),
@@ -133,13 +141,7 @@ def main():
         torch.nn.Conv2d(224, 224, kernel_size=3, stride=1, padding=1),
         torch.nn.ReLU(),
         torch.nn.MaxPool2d(2, 2),
-
-        torch.nn.Flatten(),
-        torch.nn.Linear(224, 448),
-        torch.nn.ReLU(),
-        torch.nn.Linear(448, 224),
-        torch.nn.ReLU(),
-        torch.nn.Linear(224, 10))
+        """
 
     """
 
