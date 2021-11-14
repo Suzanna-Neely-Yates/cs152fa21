@@ -113,9 +113,10 @@ def main():
     # TODO: create a new model
     # Your model can be as complex or simple as you'd like. It must work
     # with the other parts of this script.)
+
     model = torch.nn.Sequential(
 
-        torch.nn.Conv2d(3, 28, kernel_size=3, padding=1),
+        torch.nn.Conv2d(1, 28, kernel_size=3, padding=1),
         torch.nn.ReLU(),
         torch.nn.Conv2d(28, 56, kernel_size=3, stride=1, padding=1),
         torch.nn.ReLU(),
