@@ -120,7 +120,7 @@ def main():
         torch.nn.ReLU(),
         torch.nn.Conv2d(28, 56, kernel_size=3, stride=1, padding=1),
         torch.nn.ReLU(),
-        torch.nn.MaxPool2d(2, 2),
+        torch.nn.MaxPool2d(3, 2),
 
         torch.nn.Conv2d(56, 112, kernel_size=3, stride=1, padding=1),
         torch.nn.ReLU(),
