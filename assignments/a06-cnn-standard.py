@@ -4,15 +4,13 @@ from argparse import ArgumentParser
 from utils import get_mnist_data_loaders, DataLoaderProgress
 from fastprogress.fastprogress import master_bar, progress_bar
 import torch
+import torchvision.models as models
+import torchvision
 
 """
 Assignment #6:
 
-A convolutional neural network implemented with sequential :
-    1. Flattens the image.
-    2. Linear layer with 784 inputs and 28 outputs.
-    3. ReLU function
-    4. Linear layer with 28 inputs and 10 outputs.
+A “standard” CNN model implemented with available torch CNN libraries 
 """
 
 # check
@@ -113,11 +111,8 @@ def main():
     # TODO: create a new model
     # Your model can be as complex or simple as you'd like. It must work
     # with the other parts of this script.)
-    model = torch.nn.Sequential(
-        torch.nn.Flatten(),
-        torch.nn.Linear(784, 28),
-        torch.nn.ReLU(),
-        torch.nn.Linear(28, 10))
+
+    model = models.resnet18(pretrained=False, progress=True, **kwargs)
 
     # TODO:
     # - create a CrossEntropyLoss criterion

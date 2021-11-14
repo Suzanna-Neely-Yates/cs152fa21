@@ -8,11 +8,22 @@ import torch
 """
 Assignment #6:
 
-A convolutional neural network implemented with sequential :
-    1. Flattens the image.
-    2. Linear layer with 784 inputs and 28 outputs.
-    3. ReLU function
-    4. Linear layer with 28 inputs and 10 outputs.
+A convolutional neural network implemented with sequential:
+    1. First convolutional layer
+    2. ReLU function
+    3. Second convolutional layer
+    4. ReLU function
+    5. MaxPool2D layer
+    6. Flatten
+    7. Linear layer
+    8. ReLU
+    9. Linear output layer
+
+    Epoch  1/10: accuracy=97.55% and loss=0.073                            
+    Epoch  2/10: accuracy=98.82% and loss=0.035                            
+    Epoch  3/10: accuracy=98.88% and loss=0.036                            
+    Epoch  4/10: accuracy=98.95% and loss=0.031                            
+    Epoch  5/10: accuracy=99.10% and loss=0.029 
 """
 
 # check
@@ -123,54 +134,9 @@ def main():
         torch.nn.MaxPool2d(2, 2),
 
         torch.nn.Flatten(),
-        #not matching
         torch.nn.Linear(10976, 10000),
         torch.nn.ReLU(),
-        # torch.nn.Linear(224, 112),
-        # torch.nn.ReLU(),
         torch.nn.Linear(10000, 10))
-
-    """
-        torch.nn.Conv2d(56, 112, kernel_size=3, stride=1, padding=1),
-        torch.nn.ReLU(),
-        torch.nn.Conv2d(112, 112, kernel_size=3, stride=1, padding=1),
-        torch.nn.ReLU(),
-        torch.nn.MaxPool2d(2, 2),
-
-        torch.nn.Conv2d(112, 224, kernel_size=3, stride=1, padding=1),
-        torch.nn.ReLU(),
-        torch.nn.Conv2d(224, 224, kernel_size=3, stride=1, padding=1),
-        torch.nn.ReLU(),
-        torch.nn.MaxPool2d(2, 2),
-        """
-
-    """
-
-        torch.nn.Conv2d(1, 28, kernel_size=3, padding=1),
-        torch.nn.ReLU(),
-        torch.nn.Conv2d(28, 56, kernel_size=3, stride=1, padding=1),
-        torch.nn.ReLU(),
-        torch.nn.MaxPool2d(2, 2),
-
-        torch.nn.Conv2d(56, 112, kernel_size=3, stride=1, padding=1),
-        torch.nn.ReLU(),
-        torch.nn.Conv2d(112, 112, kernel_size=3, stride=1, padding=1),
-        torch.nn.ReLU(),
-        torch.nn.MaxPool2d(2, 2),
-
-        torch.nn.Conv2d(112, 224, kernel_size=3, stride=1, padding=1),
-        torch.nn.ReLU(),
-        torch.nn.Conv2d(224, 224, kernel_size=3, stride=1, padding=1),
-        torch.nn.ReLU(),
-        torch.nn.MaxPool2d(2, 2),
-
-        torch.nn.Flatten(),
-        torch.nn.Linear(224*4*4, 896),
-        torch.nn.ReLU(),
-        torch.nn.Linear(896, 448),
-        torch.nn.ReLU(),
-        torch.nn.Linear(448, 10))
-        """
 
     # TODO:
     # - create a CrossEntropyLoss criterion
