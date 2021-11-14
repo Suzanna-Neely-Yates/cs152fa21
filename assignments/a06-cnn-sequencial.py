@@ -123,11 +123,12 @@ def main():
         torch.nn.MaxPool2d(2, 2),
 
         torch.nn.Flatten(),
+        #not matching
         torch.nn.Linear(10000, 10976),
         torch.nn.ReLU(),
-        torch.nn.Linear(224, 112),
-        torch.nn.ReLU(),
-        torch.nn.Linear(112, 10))
+        # torch.nn.Linear(224, 112),
+        # torch.nn.ReLU(),
+        torch.nn.Linear(10976, 10))
 
     """
         torch.nn.Conv2d(56, 112, kernel_size=3, stride=1, padding=1),
