@@ -131,7 +131,9 @@ def main():
         torch.nn.Flatten(),
         torch.nn.Linear(112*4*4, 448),
         torch.nn.ReLU(),
-        torch.nn.Linear(448, 10))
+        torch.nn.Linear(448, 224),
+        torch.nn.ReLU(),
+        torch.nn.Linear(224, 10))
 
     # TODO:
     # - create a CrossEntropyLoss criterion
