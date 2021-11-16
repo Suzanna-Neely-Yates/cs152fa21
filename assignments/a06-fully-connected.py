@@ -132,6 +132,8 @@ def main():
         torch.nn.ReLU(),
         torch.nn.Linear(28, 10))
 
+    model.to(device)
+
     # TODO:
     # - create a CrossEntropyLoss criterion
     # - create an optimizer of your choice

@@ -12,9 +12,17 @@ Assignment #6:
 
 A “standard” CNN model implemented with available torch CNN libraries 
 
-Epoch  1/10: accuracy=98.57% and loss=0.046                            
-Epoch  2/10: accuracy=98.83% and loss=0.032                            
-Epoch  3/10: accuracy=99.00% and loss=0.031 
+Initial accuracy= 4.50% and loss=3.035
+Epoch  1/10: accuracy=98.84% and loss=0.036                      
+Epoch  2/10: accuracy=99.07% and loss=0.028                      
+Epoch  3/10: accuracy=99.23% and loss=0.022                      
+Epoch  4/10: accuracy=99.27% and loss=0.022                      
+Epoch  5/10: accuracy=99.28% and loss=0.020                      
+Epoch  6/10: accuracy=99.32% and loss=0.021                      
+Epoch  7/10: accuracy=99.38% and loss=0.018                      
+Epoch  8/10: accuracy=99.40% and loss=0.018                      
+Epoch  9/10: accuracy=99.39% and loss=0.018                      
+Epoch 10/10: accuracy=99.38% and loss=0.018  
 """
 
 # check
