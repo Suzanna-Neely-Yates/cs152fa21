@@ -124,7 +124,7 @@ def main():
     # Your model can be as complex or simple as you'd like. It must work
     # with the other parts of this script.)
 
-    model = models.resnet18(pretrained=False, progress=True)
+    model = models.resnet50(pretrained=False, progress=True)
     model.conv1 = torch.nn.Conv2d(1, 64, kernel_size=3, padding=1)
     model.fc = torch.nn.Linear(in_features=512, out_features=10, bias=True)
 
